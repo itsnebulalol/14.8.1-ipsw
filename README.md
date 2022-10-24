@@ -12,6 +12,7 @@ Created by Nebula and [Nick Chan](https://github.com/asdfugil), with help from g
 - [asr64_patcher](https://github.com/iSuns9/asr64_patcher)
 - [restored_external64_patcher](https://github.com/iSuns9/restored_external64patcher)
 - [trustcache](https://github.com/CRKatri/trustcache)
+- [img4lib](https://github.com/pinauten/img4lib)
 
 Binaries should be in path, easiest place is `/usr/local/bin`.
 
