@@ -141,4 +141,4 @@ rm -f *".rdsk-done"
 zip -r9 ../../ipsws/"$2"_14.8.1_18H107_Restore.ipsw .
 cd ../../
 
-echo "Done! Your new ipsw is in ipsws/'$2'_14.8.1_18H107_Restore.ipsw"
+echo "Done! Your new ipsw is in ipsws/$2_14.8.1_18H107_Restore.ipsw"

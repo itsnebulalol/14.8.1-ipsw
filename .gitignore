@@ -1,1 +1,4 @@
 work
+*.aria2
+ota*
+ipsw*

@@ -7,8 +7,8 @@ Created by Nebula and [Nick Chan](https://github.com/asdfugil), with help from g
 # Requirements
 
 - macOS
-- From [Procursus](https://github.com/ProcursusTeam/Procursus): aria2, ldid
-    - Easiest way is to Procursus strap your Mac, then `sudo apt install aria2 ldid`
+- From [Procursus](https://github.com/ProcursusTeam/Procursus): aria2, ldid, 7z
+    - Easiest way is to Procursus strap your Mac, then `sudo apt install aria2 ldid p7zip`
 - [asr64_patcher](https://github.com/iSuns9/asr64_patcher)
 - [restored_external64_patcher](https://github.com/iSuns9/restored_external64patcher)
 - [trustcache](https://github.com/CRKatri/trustcache)
