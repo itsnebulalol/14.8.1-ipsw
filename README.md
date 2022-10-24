@@ -32,7 +32,7 @@ It's pretty easy. Output IPSW will be in the `ipsws` folder.
 
 Restore with `--skip-blob` and `--use-pwndfu`.
 
-Example command: `futurerestore --latest-sep --latest-baseband --boot-args '-v -restore -progress rd=md0 nand-enable-reformat=1' -i -g 19H12 --skip-blob --use-pwndfu -t ../blob.shsh2 iPhone10,3,iPhone10,6_14.8.1_18H107_Restore.ipsw`
+Example command: `futurerestore -t 14.8.1.shsh2 --use-pwndfu --skip-blob --custom-latest-beta --custom-latest-buildid 19H12 --no-rsep --latest-sep --latest-baseband 14.8.1.ipsw`
 # Licensing
 
 14.8.1 IPSW Creator is licensed under BSD-3-Clause. The license can be found [here](https://github.com/itsnebulalol/14.8.1-ipsw/blob/main/LICENSE).
