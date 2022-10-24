@@ -2,22 +2,29 @@
 # this is a small funny script to make a 14.8.1 ipsw
 # may or may not work.
 # made by nebula and nick chan
-# usage: ./makeipsw.sh <link to 14.8.1 ota> <deviceid, eg. iPhone10,6>
+# usage: ./makeipsw.sh <link to 14.8.1 ota> <deviceid, eg. iPhone10,6> <optional, aria2c download threads, default 32>
 
 set -e
 set -o xtrace
 mkdir -p ipsws
+sudo rm -rf work
 VOLUME_NAME=AzulSecuritySky18H107.D22D221OS
 
+# aria2c args
+if [ -z "$3" ]; then
+    aria2c_args="-j32 -x32 -s32"
+else
+    aria2c_args="-j$3 -x$3 -s$3"
+fi
+
 # download the ota
-aria2c -j32 -x32 -s32 "$1" -o "ota-$2.zip"
+aria2c $aria2c_args "$1" -o "ota-$2.zip"
 
 # download the ipsw
 ipswurl=$(curl -sL "https://api.ipsw.me/v4/device/$2?type=ipsw" | jq '.firmwares | .[] | select(.version=="14.8") | .url' --raw-output)
-aria2c -j32 -x32 -s32 "$ipswurl" -o "ipsw-$2.ipsw"
+aria2c $aria2c_args "$ipswurl" -o "ipsw-$2.ipsw"
 
 # create work dir
-sudo rm -rf work
 mkdir -p work/ota work/ipsw
 cd work/ipsw
 unzip ../../ipsw-"$2".ipsw
@@ -28,7 +35,7 @@ cd ..
 cd ota
 unzip ../../ota-"$2".zip
 rm ../../ota-"$2".zip
-aria2c -j32 -x32 -s32 "https://cdn.discordapp.com/attachments/1006183120762048592/1033719560035119144/template.dmg"
+curl -LO "https://cdn.discordapp.com/attachments/1006183120762048592/1033719560035119144/template.dmg"
 
 # make the rootfs
 mkdir AssetData/rootfs
