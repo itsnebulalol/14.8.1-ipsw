@@ -48,12 +48,12 @@ sudo cp -a ../payload/replace/* .
 
 for app in ../payloadv2/app_patches/*.app; do
     appname=$(echo $app | cut -d/ -f4)
-    sudo mkdir -p private/var/staged_system_apps/$appname
-    sudo cp -a $app private/var/staged_system_apps/$appname
-    pushd private/var/staged_system_apps/$appname
-    sudo 7z x $appname || true;
-    sudo aa extract -i $(echo $appname | cut -d. -f1)|| true;
-    sudo rm $appname
+    sudo mkdir -p "private/var/staged_system_apps/$appname"
+    sudo cp -a "$app" "private/var/staged_system_apps/$appname"
+    pushd "private/var/staged_system_apps/$appname"
+    sudo 7z x "$appname" || true;
+    sudo aa extract -i $(echo "$appname" | cut -d. -f1)|| true;
+    sudo rm "$appname"
     popd
 done
 
