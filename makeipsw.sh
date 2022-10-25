@@ -8,7 +8,9 @@ set -e
 set -o xtrace
 mkdir -p ipsws
 sudo rm -rf work
-VOLUME_NAME=AzulSecuritySky18H107.D22D221OS
+if [ -z "$VOLUME_NAME" ]; then
+	VOLUME_NAME=AzulSecuritySky18H107.D22D221OS
+fi
 
 # aria2c args
 if [ -z "$3" ]; then
@@ -47,13 +49,13 @@ sudo chown -R 0:0 ../payload/replace/*
 sudo cp -a ../payload/replace/* .
 
 for app in ../payloadv2/app_patches/*.app; do
-    appname=$(echo $app | cut -d/ -f4)
-    sudo mkdir -p private/var/staged_system_apps/$appname
-    sudo cp -a $app private/var/staged_system_apps/$appname
-    pushd private/var/staged_system_apps/$appname
-    sudo 7z x $appname || true;
-    sudo aa extract -i $(echo $appname | cut -d. -f1)|| true;
-    sudo rm $appname
+    appname="$(echo "$app" | cut -d/ -f4)"
+    sudo mkdir -p private/var/staged_system_apps/"$appname"
+    sudo cp -a "$app" private/var/staged_system_apps/"$appname"
+    pushd private/var/staged_system_apps/"$appname"
+    sudo 7z x "$appname" || true;
+    sudo aa extract -i "$(echo "$appname" | cut -d. -f1)" || true;
+    sudo rm "$appname"
     popd
 done
 
@@ -148,4 +150,4 @@ rm -f *".rdsk-done"
 zip -r9 ../../ipsws/"$2"_14.8.1_18H107_Restore.ipsw .
 cd ../../
 
-echo "Done! Your new ipsw is in ipsws/$2_14.8.1_18H107_Restore.ipsw"
+echo "Done! Your new ipsw is in ipsws/'$2'_14.8.1_18H107_Restore.ipsw"
