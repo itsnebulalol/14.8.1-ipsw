@@ -2,3 +2,5 @@ work
 *.aria2
 ota*
 ipsw*
+*.ipsw
+*.zip
