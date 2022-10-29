@@ -4,8 +4,7 @@
 # made by nebula and nick chan
 # usage: ./makeipsw.sh <link to 14.8.1 ota> <deviceid, eg. iPhone10,6> <optional, aria2c download threads, default 32>
 
-if [ $# -eq 0  ]
-then
+if [ $# -eq 0 ]; then
     echo "Usage: $0 [link, 14.8.1 ota] [deviceid, eg. iPhone10,6] [threads, optional]" && exit 1
 fi
 
