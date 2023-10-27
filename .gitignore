@@ -4,3 +4,4 @@ ota*
 ipsw*
 *.ipsw
 *.zip
+.DS_Store

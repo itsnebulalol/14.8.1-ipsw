@@ -1,5 +1,7 @@
 # 14.8.1 IPSW Creator
 
+**There are [premade IPSWs](https://archive.org/download/14.8.1_ipsws) available for download**
+
 Funny little script to make a 14.8.1 IPSW, used for pwned restores. May or may not work. Use at your own risk.
 
 Created by Nebula and [Nick Chan](https://github.com/asdfugil), with help from galaxy#0007.
